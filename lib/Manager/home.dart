@@ -1,14 +1,13 @@
-import 'package:avatar_glow/avatar_glow.dart';
 import 'package:flutter/material.dart';
-import 'package:hostel_booking/Manager/page_upload.dart';
-
-import '../components/palette.dart';
+import 'package:hostels/components/palette.dart';
+import 'package:avatar_glow/avatar_glow.dart';
+import 'package:hostels/manager/upload_page.dart';
 
 class Home extends StatefulWidget {
-  Home({Key? key}) : super(key: key);
+  const Home({Key? key}) : super(key: key);
 
   @override
-  State<Home> createState() => _HomeState();
+  _HomeState createState() => _HomeState();
 }
 
 class _HomeState extends State<Home> {
@@ -40,11 +39,11 @@ class _HomeState extends State<Home> {
                 showTwoGlows: true,
                 repeatPauseDuration: const Duration(microseconds: 100),
                 child: MaterialButton(
-                  onPressed:() {
+                  onPressed: () {
                     Navigator.of(context).pushAndRemoveUntil(
                         MaterialPageRoute(
                             builder: (BuildContext context) => PageUpload()),
-                         (route) => true);
+                        (route) => true);
                   },
                   elevation: 20.0,
                   shape: const CircleBorder(),

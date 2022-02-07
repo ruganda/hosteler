@@ -1,4 +1,4 @@
-# hostel_booking
+# hostels
 
 A new Flutter project.
 

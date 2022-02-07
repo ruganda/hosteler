@@ -1,6 +1,6 @@
 {
-    "name": "hostel_booking",
-    "short_name": "hostel_booking",
+    "name": "hostels",
+    "short_name": "hostels",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

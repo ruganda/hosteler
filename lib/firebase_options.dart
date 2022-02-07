@@ -48,7 +48,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyC5Mo_OOUCkfK7XVywTKo3TVId5AaAupWU',
-    appId: '1:14662394568:android:c9d47ea49f12455c043bfd',
+    appId: '1:14662394568:android:fa1e55c1ce4a2b94043bfd',
     messagingSenderId: '14662394568',
     projectId: 'hostel-booking-5e1ea',
     storageBucket: 'hostel-booking-5e1ea.appspot.com',
@@ -56,11 +56,11 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyA7qG3oM8Y9AqouoBnewOK_hIoqUgKh1d0',
-    appId: '1:14662394568:ios:c05585211f2592e8043bfd',
+    appId: '1:14662394568:ios:1a5cc203f3fe6a37043bfd',
     messagingSenderId: '14662394568',
     projectId: 'hostel-booking-5e1ea',
     storageBucket: 'hostel-booking-5e1ea.appspot.com',
-    iosClientId: '14662394568-9g0n5qp15ck5504jenvjrfpmmkvvpri8.apps.googleusercontent.com',
-    iosBundleId: 'com.example.hostel',
+    iosClientId: '14662394568-vqdjsch475kujh341gump252r9k05s23.apps.googleusercontent.com',
+    iosBundleId: 'com.example.app',
   );
 }

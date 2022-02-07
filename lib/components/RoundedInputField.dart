@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:hostel_booking/components/TextFieldContainer.dart';
-import 'package:hostel_booking/components/palette.dart';
+import 'package:hostels/components/TextFieldContainer.dart';
+import 'package:hostels/components/palette.dart';
 
 class RoundedInputField extends StatelessWidget {
   final String? hintText;
@@ -44,7 +44,6 @@ class RoundedInputField extends StatelessWidget {
           ),
           border: InputBorder.none,
         ),
-
         controller: field,
       ),
     );

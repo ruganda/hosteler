@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:hostel_booking/Manager/home.dart';
-import 'package:hostel_booking/Manager/profile/user_profile.dart';
-import 'package:hostel_booking/Manager/uploads.dart';
-import 'package:hostel_booking/components/palette.dart';
-import 'package:hostel_booking/components/bottombar_item.dart';
+import 'package:hostels/components/bottombar_item.dart';
+import 'package:hostels/components/palette.dart';
+import 'package:hostels/manager/home.dart';
+import 'package:hostels/manager/profile/user_profile.dart';
+import 'package:hostels/manager/uploads.dart';
 
 class Index extends StatefulWidget {
   const Index({Key? key}) : super(key: key);

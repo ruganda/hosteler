@@ -1,18 +1,40 @@
 import 'package:flutter/material.dart';
+import 'package:hostels/user/profile/TabButton.dart';
+import 'package:hostels/user/profile/TabLabel.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 // import '../packages_exporter.dart';
 import 'profile_pic.dart';
 // import 'sign_out_button.dart';
-import 'package:hostel_booking/User/profile/TabButton.dart';
-import 'package:hostel_booking/User/profile/TabLabel.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class UserProfileBody extends StatefulWidget {
+  const UserProfileBody({Key? key}) : super(key: key);
   @override
   _UserProfileBodyState createState() => _UserProfileBodyState();
 }
 
 class _UserProfileBodyState extends State<UserProfileBody> {
+  //retrieving email from sharedperference
+  String personEmail = " ";
+
+  @override
+  void initState() {
+    super.initState();
+    getInfor();
+  }
+
+  Future<String> getInfor() async {
+    SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+
+    personEmail = sharedPreferences.getString("email")!;
+    setState(() {
+      personEmail = (sharedPreferences.getString("email") ?? 'No email found');
+    });
+
+    throw '';
+  }
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -26,23 +48,13 @@ class _UserProfileBodyState extends State<UserProfileBody> {
           Center(
             child: ProfilePic(),
           ),
-          const Center(
-            child: Text(
-              "Ngela Yu",
-              style: TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.w800,
-                fontSize: 30,
-              ),
-            ),
-          ),
-          const Padding(
-            padding: EdgeInsets.all(10),
+          Padding(
+            padding: const EdgeInsets.all(10),
             child: Center(
               child: Text(
-                "ngela@email.com",
+                "$personEmail",
                 textAlign: TextAlign.center,
-                style: TextStyle(
+                style: const TextStyle(
                   color: Colors.white,
                   fontSize: 17,
                   letterSpacing: 0.5,

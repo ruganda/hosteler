@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hostel_booking/User/profile/palette.dart';
+import 'package:hostels/user/profile/palette.dart';
 
 class TabButton extends StatelessWidget {
   const TabButton({

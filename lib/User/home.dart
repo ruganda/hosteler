@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:hive_flutter/hive_flutter.dart';
-import 'package:hostel_booking/components/palette.dart';
-import 'package:hostel_booking/models/content.dart';
+import 'package:hive_flutter/adapters.dart';
+import 'package:hostels/components/palette.dart';
+import 'package:hostels/models/content.dart';
+import 'package:hostels/user/booking.dart';
 
 class Home extends StatefulWidget {
-  Home({Key? key}) : super(key: key);
+  const Home({Key? key}) : super(key: key);
 
   @override
-  State<Home> createState() => _HomeState();
+  _HomeState createState() => _HomeState();
 }
 
 class _HomeState extends State<Home> {
@@ -26,7 +27,7 @@ class _HomeState extends State<Home> {
         centerTitle: true,
       ),
       body: ValueListenableBuilder(
-          valueListenable: Hive.box('hostelsBox').listenable(),
+          valueListenable: Hive.box<Content>('hostelsBox').listenable(),
           builder: (context, Box box, _) {
             if (box.values.isEmpty) {
               return const Center(
@@ -36,14 +37,16 @@ class _HomeState extends State<Home> {
               return ListView.builder(
                   itemCount: box.values.length,
                   itemBuilder: (context, index) {
-                    Content currentContent = box.getAt(index);
+                    Content? currentContent = box.getAt(index);
                     return Container(
                       child: ListTile(
-                        leading: CircleAvatar(
-                          backgroundColor: Colors.amberAccent[100],
+                        leading: const CircleAvatar(
+                          radius: 50,
+                          backgroundImage: AssetImage("assets/hostel.png"),
                         ),
-                        title: Text(currentContent.name),
-                        subtitle: Text(currentContent.location),
+                        title: Text("Hostel name: " + currentContent!.name),
+                        subtitle:
+                            Text("Hostel location: " + currentContent.location),
                         onLongPress: () {
                           showDialog(
                               context: context,
@@ -60,6 +63,13 @@ class _HomeState extends State<Home> {
                                     TextButton(
                                         onPressed: () {
                                           Navigator.of(context).pop();
+                                          Navigator.of(context)
+                                              .pushAndRemoveUntil(
+                                                  MaterialPageRoute(
+                                                      builder: (BuildContext
+                                                              context) =>
+                                                          const Booking()),
+                                                  (route) => true);
                                         },
                                         child: const Text("Yes"))
                                   ],

@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:hostel_booking/components/palette.dart';
+import 'package:hostels/components/palette.dart';
 
 class BottomBarItem extends StatelessWidget {
   const BottomBarItem(this.icon, this.title, {this.onTap, this.color = inActiveColor, this.activeColor = primary, this.isActive = false, this.isNotified = false});

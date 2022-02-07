@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:hostel_booking/components/palette.dart';
+import 'package:hostels/components/palette.dart';
 
 // import '../packages_exporter.dart';
 import 'user_profile_body.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 
 class UserInfoScreen extends StatelessWidget {
   // final User user;
@@ -18,12 +17,18 @@ class UserInfoScreen extends StatelessWidget {
       backgroundColor: fontsColor,
       body: Stack(
         children: [
-          CachedNetworkImage(
-            imageUrl:
-                "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MXx8dXNlcnxlbnwwfDF8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60",
+          Container(
             width: double.infinity,
             height: double.infinity,
-            fit: BoxFit.cover,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              image: const DecorationImage(
+                image: AssetImage("assets/manager.png"),
+                fit: BoxFit.cover,
+              ),
+              border: Border.all(color: color.withOpacity(0.8), width: 4),
+              color: color.withOpacity(0.4),
+            ),
           ),
           Container(
             decoration: BoxDecoration(
@@ -40,7 +45,7 @@ class UserInfoScreen extends StatelessWidget {
           ),
 
           ///Body
-          UserProfileBody(),
+          const UserProfileBody(),
         ],
       ),
     );

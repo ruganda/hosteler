@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/adapters.dart';
+import 'package:hostels/models/content.dart';
+import 'package:hostels/welcome_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:hive/hive.dart';
-import 'package:hive_flutter/hive_flutter.dart';
-import 'package:hostel_booking/models/content.dart';
-import 'package:hostel_booking/welcome.dart';
 import 'firebase_options.dart';
 
 Future<void> main() async {
@@ -11,12 +10,15 @@ Future<void> main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+
+//hivedb details
+  //registering the adapter
+  Hive.registerAdapter<Content>(ContentAdapter());
   //initialize hive
   await Hive.initFlutter();
   //open the hostelBox
-  await Hive.openBox('hostelsBox');
-  //registering the adapter
-  Hive.registerAdapter(ContentAdapter());
+  await Hive.openBox<Content>('hostelsBox');
+
   runApp(const MyApp());
 }
 
@@ -27,8 +29,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Hostel Booking',
       debugShowCheckedModeBanner: false,
+      title: 'Hosteler',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -39,7 +41,7 @@ class MyApp extends StatelessWidget {
         // or simply save your changes to "hot reload" in a Flutter IDE).
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
-        primarySwatch: Colors.yellow,
+        primarySwatch: Colors.blue,
       ),
       home: WelcomeScreen(),
     );

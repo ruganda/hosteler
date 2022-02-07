@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_glow/flutter_glow.dart';
-import 'package:hostel_booking/Manager/index.dart';
-import 'package:hostel_booking/User/authgate.dart';
+import 'package:hostels/manager/01_login.dart';
+import 'package:hostels/user/authgate.dart';
 
 class WelcomeScreen extends StatefulWidget {
-  WelcomeScreen({Key? key}) : super(key: key);
+  const WelcomeScreen({Key? key}) : super(key: key);
 
   @override
-  State<WelcomeScreen> createState() => _WelcomeScreenState();
+  _WelcomeScreenState createState() => _WelcomeScreenState();
 }
 
 class _WelcomeScreenState extends State<WelcomeScreen> {
@@ -46,7 +46,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 onTap: () {
                   Navigator.of(context).pushAndRemoveUntil(
                       MaterialPageRoute(
-                          builder: (BuildContext context) => Index()),
+                          builder: (BuildContext context) => Login()),
                       (route) => true);
                 },
                 child: const GlowIcon(
@@ -69,7 +69,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 onTap: () {
                   Navigator.of(context).pushAndRemoveUntil(
                       MaterialPageRoute(
-                          builder: (BuildContext context) => AuthGate()),
+                          builder: (BuildContext context) => AuthGate()),  //AuthGate is for users
                       (route) => true);
                 },
                 child: const GlowIcon(
