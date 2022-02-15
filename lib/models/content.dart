@@ -1,7 +1,3 @@
-
-import 'dart:io';
-import 'dart:typed_data';
-
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:hive/hive.dart';
 
@@ -13,9 +9,12 @@ class Content {
   String name;
   @HiveField(1)
   String location;
+
   @HiveField(2)
-  String description;
-  @HiveField(3)
-  String price;
-  Content(this.name, this.location, this.description, this.price);
+  // ignore: prefer_typing_uninitialized_variables
+  var image;
+  Content(this.name, this.location, this.image, 
+  // this.locPicker,
+  //     this.description, this.price
+      );
 }

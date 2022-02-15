@@ -109,6 +109,7 @@ class ListButton extends StatelessWidget {
           icon,
           color: color,
         ),
+        onTap: onTap,
       ),
     );
   }

@@ -1,9 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterfire_ui/auth.dart';
-import 'package:hostels/user/index.dart';
+import 'package:hostels/manager/index.dart';
 
-class AuthGate extends StatelessWidget {
+class AuthGateManager extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<User?>(
@@ -26,8 +26,8 @@ class AuthGate extends StatelessWidget {
                 padding: const EdgeInsets.only(bottom: 8),
                 child: Text(
                   action == AuthAction.signIn
-                      ? 'Welcome to the Hostel\s Management! Please sign in to continue.'
-                      : 'Welcome to Hostel\s Management! Please create an account to continue',
+                      ? 'Welcome to the Hostel\s management! Please sign in to continue.'
+                      : 'Welcome to  Hostel\s management! Please create an account to continue',
                 ),
               );
             },
@@ -43,13 +43,10 @@ class AuthGate extends StatelessWidget {
             },
             providerConfigs: const [
               EmailProviderConfiguration(),
-              // GoogleProviderConfiguration(
-              //   clientId: '...',
-              // ),
             ],
           );
         }
-        return Index();
+        return const Index();
       },
     );
   }

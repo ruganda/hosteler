@@ -16,6 +16,7 @@ Future<void> main() async {
   Hive.registerAdapter<Content>(ContentAdapter());
   //initialize hive
   await Hive.initFlutter();
+
   //open the hostelBox
   await Hive.openBox<Content>('hostelsBox');
 
@@ -30,7 +31,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Hosteler',
+      title: 'Hostels',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -43,7 +44,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: WelcomeScreen(),
+      home: const WelcomeScreen(),
     );
   }
 }

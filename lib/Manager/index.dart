@@ -21,7 +21,7 @@ class _IndexState extends State<Index> {
   ];
   List<Widget> pages = [
     const Uploads(),
-    Home(),
+    const Home(),
     UserInfoScreen(),
   ];
 

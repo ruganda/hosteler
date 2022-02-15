@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_glow/flutter_glow.dart';
-import 'package:hostels/manager/01_login.dart';
+import 'package:hostels/manager/manager_auth.dart';
 import 'package:hostels/user/authgate.dart';
 
 class WelcomeScreen extends StatefulWidget {
@@ -42,11 +42,11 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
               height: 10,
             ),
             Center(
-              child: GestureDetector(
+              child: InkWell(
                 onTap: () {
                   Navigator.of(context).pushAndRemoveUntil(
                       MaterialPageRoute(
-                          builder: (BuildContext context) => Login()),
+                          builder: (BuildContext context) => AuthGateManager()),
                       (route) => true);
                 },
                 child: const GlowIcon(
@@ -65,11 +65,12 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
               height: 10,
             ),
             Center(
-              child: GestureDetector(
+              child: InkWell(
                 onTap: () {
                   Navigator.of(context).pushAndRemoveUntil(
                       MaterialPageRoute(
-                          builder: (BuildContext context) => AuthGate()),  //AuthGate is for users
+                          builder: (BuildContext context) =>
+                              AuthGate()), //AuthGate is for users
                       (route) => true);
                 },
                 child: const GlowIcon(

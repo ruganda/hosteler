@@ -1,8 +1,12 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:hostels/components/palette.dart';
 import 'package:hostels/models/content.dart';
 import 'package:hostels/user/booking.dart';
+import 'package:hostels/user/map_page.dart';
+import 'package:text_to_speech/text_to_speech.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -12,6 +16,14 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  TextToSpeech tts = TextToSpeech();
+
+  Home() {
+    tts.setLanguage('en');
+    tts.setRate(0.4);
+    tts.setVolume(0.8);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,14 +52,28 @@ class _HomeState extends State<Home> {
                     Content? currentContent = box.getAt(index);
                     return Container(
                       child: ListTile(
-                        leading: const CircleAvatar(
-                          radius: 50,
-                          backgroundImage: AssetImage("assets/hostel.png"),
+                        leading: ClipRRect(
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(15)),
+                          child: Container(
+                            height: 120,
+                            width: 120,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(15),
+                              color: Colors.white,
+                            ),
+                            child: Image.file(
+                              File(currentContent!.image),
+                              height: 120,
+                              width: 120,
+                              fit: BoxFit.cover,
+                            ),
+                          ),
                         ),
-                        title: Text("Hostel name: " + currentContent!.name),
+                        title: Text("Hostel name: " + currentContent.name),
                         subtitle:
                             Text("Hostel location: " + currentContent.location),
-                        onLongPress: () {
+                        onTap: () {
                           showDialog(
                               context: context,
                               barrierDismissible: true,
@@ -75,6 +101,21 @@ class _HomeState extends State<Home> {
                                   ],
                                 );
                               });
+                        },
+                        trailing: IconButton(
+                          onPressed: () {
+                            tts.speak(currentContent.name);
+                            // tts.speak(currentContent.location);
+                          },
+                          color: Colors.black,
+                          icon: const Icon(Icons.speaker_phone),
+                        ),
+                        onLongPress: () {
+                          Navigator.of(context).pushAndRemoveUntil(
+                              MaterialPageRoute(
+                                  builder: (BuildContext context) =>
+                                      const MapsPage()),
+                              (route) => true);
                         },
                       ),
                     );

@@ -47,7 +47,11 @@ dependencies:
   hive_generator: 
   build_runner: ^1.7.2
   flutterwave: ^1.0.1
-  image_picker: ^0.8.4+6
+  text_to_speech: ^0.2.3
+  image_picker: ^0.7.0
+  location: ^4.3.0
+  latlng: ^0.1.0
+  flutter_map: ^0.13.1
  
 
 dev_dependencies:

@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:hostels/components/RoundedInputField.dart';
 import 'package:flutterwave/flutterwave.dart';
+import 'package:hostels/components/palette.dart';
 import 'package:hostels/user/payents.dart';
 
 class Booking extends StatefulWidget {
@@ -26,8 +27,8 @@ class _BookingState extends State<Booking> {
   TimeOfDay selectedTime = TimeOfDay.now();
 
   bool _decideWhichDayToEnable(DateTime day) {
-    if ((day.isAfter(DateTime.now().subtract(Duration(days: 1))) &&
-        day.isBefore(DateTime.now().add(Duration(days: 20))))) {
+    if ((day.isAfter(DateTime.now().subtract(const Duration(days: 1))) &&
+        day.isBefore(DateTime.now().add(const Duration(days: 20))))) {
       return true;
     }
     return false;
@@ -83,7 +84,7 @@ class _BookingState extends State<Booking> {
         context: context,
         builder: (context) {
           return AlertDialog(
-            title: Text("Booking session"),
+            title: const Text("Booking session"),
             content: StatefulBuilder(builder: (context, _) {
               return SingleChildScrollView(
                 child: Column(
@@ -121,14 +122,14 @@ class _BookingState extends State<Booking> {
                     pending();
                     Navigator.of(context).pop();
                   },
-                  child: Text("Book"))
+                  child: const Text("Book"))
             ],
           );
         });
   }
 
   Future<void> pending() async {
-    Timer(Duration(seconds: 10), () {
+    Timer(const Duration(seconds: 10), () {
       setState(() {
         status = true;
       });
@@ -139,19 +140,19 @@ class _BookingState extends State<Booking> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).primaryColor,
-        title: Text("Book History"),
+        backgroundColor: fontsColor,
+        title: const Text("Book History"),
         centerTitle: true,
       ),
       body: bookDetails.length < 1
-          ? Center(
-              child: Text("You current have no bookings"),
+          ? const Center(
+              child: const Text("You current have no bookings"),
             )
           : ListView(
               children: List.generate(
                   bookDetails.length,
                   (index) => ListTile(
-                        leading: Icon(Icons.book_online_rounded),
+                        leading: const Icon(Icons.book_online_rounded),
                         title: Text("Time: " + bookDetails[index]['time']),
                         subtitle: Text("Date: " + bookDetails[index]['date']),
                         trailing: Chip(
@@ -164,7 +165,7 @@ class _BookingState extends State<Booking> {
                           ),
                           label: Text(
                             status == true ? "Approved" : "Pending",
-                            style: TextStyle(
+                            style: const TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.w400,
                               fontSize: 10,
@@ -173,7 +174,7 @@ class _BookingState extends State<Booking> {
                           backgroundColor:
                               status == true ? Colors.green : Colors.red,
                         ),
-                        onLongPress: () {
+                        onTap: () {
                           Navigator.of(context).pushAndRemoveUntil(
                               MaterialPageRoute(
                                 builder: (BuildContext context) =>
@@ -184,8 +185,8 @@ class _BookingState extends State<Booking> {
                       )),
             ),
       floatingActionButton: FloatingActionButton(
-          backgroundColor: Theme.of(context).primaryColor,
-          child: Icon(Icons.add),
+          backgroundColor: fontsColor,
+          child: const Icon(Icons.add),
           onPressed: () {
             createAlert(context);
           }),

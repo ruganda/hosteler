@@ -19,24 +19,20 @@ class ContentAdapter extends TypeAdapter<Content> {
     return Content(
       fields[0] as String,
       fields[1] as String,
-      fields[2] as String,
-      fields[3] as String
+      fields[2] as dynamic,
     );
   }
 
   @override
   void write(BinaryWriter writer, Content obj) {
     writer
-      ..writeByte(4)
+      ..writeByte(3)
       ..writeByte(0)
       ..write(obj.name)
       ..writeByte(1)
       ..write(obj.location)
       ..writeByte(2)
-      ..write(obj.description)
-      ..writeByte(3)
-      ..write(obj.price);
-
+      ..write(obj.image);
   }
 
   @override

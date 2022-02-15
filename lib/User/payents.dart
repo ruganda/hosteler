@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutterwave/flutterwave.dart';
+import 'package:hostels/components/palette.dart';
 
 class Payments extends StatefulWidget {
   const Payments({Key? key}) : super(key: key);
@@ -22,6 +23,7 @@ class _PaymentsState extends State<Payments> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: fontsColor,
         title: const Text("Payments"),
       ),
       body: SingleChildScrollView(
@@ -78,6 +80,7 @@ class _PaymentsState extends State<Payments> {
               margin: const EdgeInsets.fromLTRB(0, 20, 0, 10),
               child: ElevatedButton(
                 onPressed: this._onPressed,
+                style: ElevatedButton.styleFrom(primary: fontsColor),
                 child: const Text(
                   "Make Payment",
                   style: TextStyle(color: Colors.white),
