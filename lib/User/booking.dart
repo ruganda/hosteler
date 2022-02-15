@@ -43,7 +43,7 @@ class _BookingState extends State<Booking> {
       firstDate: DateTime.now(),
       lastDate: DateTime(2030),
       selectableDayPredicate: _decideWhichDayToEnable,
-      helpText: 'CHOOSE APPOINTMENT DATE',
+      helpText: 'CHOOSE BOOKING DATE',
       cancelText: 'NOT NOW',
       confirmText: 'SET',
     );
@@ -60,7 +60,7 @@ class _BookingState extends State<Booking> {
     final TimeOfDay? picked = await showTimePicker(
       context: context,
       initialTime: selectedTime,
-      helpText: 'CHOOSE APPOINTMENT TIME',
+      helpText: 'CHOOSE BOOKING TIME',
       cancelText: 'NOT NOW',
       confirmText: 'SET',
     );
@@ -78,6 +78,7 @@ class _BookingState extends State<Booking> {
         bookTime.text = _time;
       });
   }
+  //booking session
 
   createAlert(BuildContext context) {
     return showDialog(
@@ -164,7 +165,7 @@ class _BookingState extends State<Booking> {
                             size: 19,
                           ),
                           label: Text(
-                            status == true ? "Approved" : "Pending",
+                            status == true ? "Booked" : "Pending",
                             style: const TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.w400,
