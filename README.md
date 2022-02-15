@@ -21,6 +21,6 @@ Transaction/cancellation function
 The app should allow a student to make payments within the application.
 Once a transaction is completed, the app will not accept cancellation.
 Text narrator function
-The application should read out text displayed
-Compliance/ regulatory requirement
+The application should read out text displayed.
+Compliance/ regulatory requirement.
 User information should not be compromised or shared with third party apps or organizations in accordance with right to privacy.
