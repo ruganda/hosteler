@@ -67,14 +67,14 @@ class _UserProfileBodyState extends State<UserProfileBody> {
             label: "Report a problem",
             icon: Icons.mail,
             page: () {
-              launch("mailto:rovankeds@gmail.com.com?subject=Report%20Problem");
+              launch("mailto:rovankeds@gmail.com?subject=Report%20Problem");
             },
           ),
           TabButton(
             label: 'Send Feedback',
             icon: Icons.feedback_outlined,
             page: () {
-              launch("mailto:rovankeds@gmail.com.com?subject=Report%20Problem");
+              launch("mailto:rovankeds@gmail.com?subject=Report%20Problem");
             },
           ),
           const TabLabel(
