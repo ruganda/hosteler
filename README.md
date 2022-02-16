@@ -24,3 +24,7 @@ Text narrator function
 The application should read out text displayed.
 Compliance/ regulatory requirement.
 User information should not be compromised or shared with third party apps or organizations in accordance with right to privacy.
+
+TO DO
+>When a user books a hostel, the manager doesn't get notified so we will add a features that notifies a manager that a user has booked a hoste
+>We are currently using a hive database to store the hostel details uploaded by the manager but with time we shall update to a more convienient database.
